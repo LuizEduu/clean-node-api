@@ -2,5 +2,8 @@
     "extends": ["standard-with-typescript", "prettier", "prettier/@typescript-eslint"],
     "parserOptions": {
         "project": "./tsconfig.json"
+    },
+    "rules": {
+      "@typescript-eslint/strict-boolean-expressions": "off"
     }
 }
