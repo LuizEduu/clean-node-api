@@ -1,5 +1,5 @@
 function jose(): string {
-    return 'maria';
+    return 'maria'
 }
 
-jose();
+jose()
