@@ -23,7 +23,6 @@ const makeSut = (): sutTypes => {
 }
 
 describe('SignUp Controller', () => {
-  
   it('Should return 400 if no name is provided', () => {
     const { sut } = makeSut()
     const httpRequest = {
@@ -91,11 +90,27 @@ describe('SignUp Controller', () => {
         name: 'John Doe',
         email: 'invalid_email@example.com',
         password: '123456',
-        passwordConfirmation: '123456'
+        passwordConfirmation: '123456',
       },
     }
     const httpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new InvalidParamError('email'))
+  })
+
+  it('Should call EmailValidator with correct email', () => {
+    const { sut, emailValidatorStub } = makeSut()
+    const isValidSpy = jest.spyOn(emailValidatorStub, 'isValid')
+
+    const httpRequest = {
+      body: {
+        name: 'John Doe',
+        email: 'any_email@example.com',
+        password: '123456',
+        passwordConfirmation: '123456',
+      },
+    }
+    sut.handle(httpRequest)
+    expect(isValidSpy).toHaveBeenCalledWith('any_email@example.com')
   })
 })
