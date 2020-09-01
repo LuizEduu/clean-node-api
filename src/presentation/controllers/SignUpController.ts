@@ -6,12 +6,15 @@ import {
 } from '../protocols'
 import { MissingParamError, InvalidParamError } from '../errors/'
 import { badRequest, serverError } from '../helpers/HttpHelper'
+import { AddAccount } from '../../domain/UseCases/AddAccount'
 
 class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator
+  private readonly addAccount: AddAccount
 
-  constructor(emailValidator: EmailValidator) {
+  constructor(emailValidator: EmailValidator, addAccount: AddAccount) {
     this.emailValidator = emailValidator
+    this.addAccount = addAccount
   }
 
   handle(httpRequest: HttpRequest): HttpResponse {
