@@ -31,7 +31,7 @@ class SignUpController implements Controller {
         }
       }
 
-      const { email, password, passwordConfirmation } = httpRequest.body
+      const { name, email, password, passwordConfirmation } = httpRequest.body
 
       if (password !== passwordConfirmation) {
         return badRequest(new InvalidParamError('passwordConfirmation'))
@@ -42,6 +42,12 @@ class SignUpController implements Controller {
       if (!isValid) {
         return badRequest(new InvalidParamError('email'))
       }
+
+      this.addAccount.add({
+        name,
+        email,
+        password,
+      })
     } catch (_) {
       return serverError()
     }
