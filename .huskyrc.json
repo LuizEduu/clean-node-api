@@ -1,7 +1,9 @@
 {
   "hooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "pre-push": "yarn test:ci"
   },
+  
   "lint-staged": {
     "*": ["prettier-standard --lint"]
   }
