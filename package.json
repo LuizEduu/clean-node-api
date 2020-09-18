@@ -4,8 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.3",
     "@types/bcrypt": "^3.0.0",
     "@types/jest": "^26.0.10",
+    "@types/mongodb": "^3.5.27",
     "@types/node": "^14.6.2",
     "@types/validator": "^13.1.0",
     "@typescript-eslint/eslint-plugin": "3",
@@ -36,6 +38,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "mongodb": "^3.6.2",
     "validator": "^13.1.1"
   }
 }
