@@ -6,6 +6,7 @@
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.2.3",
     "@types/bcrypt": "^3.0.0",
+    "@types/express": "^4.17.8",
     "@types/jest": "^26.0.10",
     "@types/mongodb": "^3.5.27",
     "@types/node": "^14.6.2",
@@ -26,9 +27,11 @@
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.1",
     "ts-jest": "^26.3.0",
+    "ts-node-dev": "^1.0.0-pre.62",
     "typescript": "^4.0.2"
   },
   "scripts": {
+    "dev": "ts-node-dev --inspect --respawn --ignore-watch node_modules --no-notify src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "yarn test  --watch -c jest-unit-config.js",
@@ -38,6 +41,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "express": "^4.17.1",
     "mongodb": "^3.6.2",
     "validator": "^13.1.1"
   }
