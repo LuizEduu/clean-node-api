@@ -1,6 +1,4 @@
-import express from 'express'
-
-const app = express()
+import app from './config/app'
 
 app.get('/', (request, response) => {
   return response.send('Hello Word')
