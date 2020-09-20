@@ -1,6 +1,5 @@
 import { Express, json } from 'express'
-import { cors } from '../middlewares/cors'
-import { contentType } from '../middlewares/contentType'
+import { cors, contentType } from '../middlewares'
 
 export default (app: Express): void => {
   app.use(json())
