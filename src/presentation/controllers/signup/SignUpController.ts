@@ -8,7 +8,7 @@ import {
 import { MissingParamError, InvalidParamError } from '../../errors'
 import { badRequest, serverError, ok } from '../../helpers/HttpHelper'
 
-class SignUpController implements Controller {
+export default class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator
   private readonly addAccount: AddAccount
 
@@ -55,5 +55,3 @@ class SignUpController implements Controller {
     }
   }
 }
-
-export default SignUpController
