@@ -1,9 +1,11 @@
-import app from './config/app'
+import { MongoHelper } from '../infra/db/mongodb/helpers/mongoHelper'
+import env from './config/env'
 
-app.get('/', (request, response) => {
-  return response.send('Hello Word')
-})
-
-app.listen(3333, () => {
-  console.log('server is running')
-})
+MongoHelper.connect(env.mongoUrl)
+  .then(async () => {
+    const app = (await import('./config/app')).default
+    app.listen(env.port, () => {
+      console.log('server is running')
+    })
+  })
+  .catch(console.error)
